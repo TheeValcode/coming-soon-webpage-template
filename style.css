@@ -1,0 +1,1546 @@
+/* Base Styles */
+:root {
+    --primary-color: #ffe900;
+    --secondary-color: #ffe900;
+    --accent-color: #4ecdc4;
+    --text-color: #333;
+    --light-text: #fff;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --navy-blue: #1e3a8a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffe900;
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    height: 100vh;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Floating Elements */
+.floating-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.floating {
+    position: absolute;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    opacity: 0.8;
+    transition: transform 0.3s ease;
+}
+
+.floating:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+/* Confetti Pieces */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    animation: confetti-fall linear infinite;
+}
+
+.confetti-triangle {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 12px solid;
+}
+
+.confetti-square {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+}
+
+.confetti-circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.confetti-1 { background-color: #ff6b6b; top: -20px; left: 5%; animation-duration: 8s; animation-delay: 0s; }
+.confetti-2 { background-color: #4ecdc4; top: -20px; left: 15%; animation-duration: 10s; animation-delay: -2s; }
+.confetti-3 { background-color: #45b7d1; top: -20px; left: 25%; animation-duration: 7s; animation-delay: -1s; }
+.confetti-4 { background-color: #f9ca24; top: -20px; left: 35%; animation-duration: 9s; animation-delay: -3s; }
+.confetti-5 { background-color: #6c5ce7; top: -20px; left: 45%; animation-duration: 11s; animation-delay: -1.5s; }
+.confetti-6 { background-color: #fd79a8; top: -20px; left: 55%; animation-duration: 8.5s; animation-delay: -2.5s; }
+.confetti-7 { background-color: #00b894; top: -20px; left: 65%; animation-duration: 9.5s; animation-delay: -0.5s; }
+.confetti-8 { background-color: #e17055; top: -20px; left: 75%; animation-duration: 10.5s; animation-delay: -3.5s; }
+.confetti-9 { background-color: #a29bfe; top: -20px; left: 85%; animation-duration: 12s; animation-delay: -1s; }
+.confetti-10 { background-color: #fd63a3; top: -20px; left: 95%; animation-duration: 7.5s; animation-delay: -4s; }
+
+.confetti-triangle-1 { border-bottom-color: #ff6b6b; top: -20px; left: 10%; animation-duration: 9s; animation-delay: -0.5s; }
+.confetti-triangle-2 { border-bottom-color: #4ecdc4; top: -20px; left: 30%; animation-duration: 8s; animation-delay: -2s; }
+.confetti-triangle-3 { border-bottom-color: #45b7d1; top: -20px; left: 50%; animation-duration: 10s; animation-delay: -1s; }
+.confetti-triangle-4 { border-bottom-color: #f9ca24; top: -20px; left: 70%; animation-duration: 11s; animation-delay: -3s; }
+.confetti-triangle-5 { border-bottom-color: #6c5ce7; top: -20px; left: 90%; animation-duration: 9s; animation-delay: -1.5s; }
+
+/* Squiggly Lines */
+.squiggle {
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    opacity: 0.6;
+    animation: squiggle-float linear infinite;
+}
+
+.squiggle svg {
+    width: 100%;
+    height: 100%;
+}
+
+.squiggle-1 { top: 10%; left: 5%; animation-duration: 15s; animation-delay: 0s; }
+.squiggle-2 { top: 20%; right: 10%; animation-duration: 18s; animation-delay: -3s; }
+.squiggle-3 { top: 40%; left: 15%; animation-duration: 20s; animation-delay: -6s; }
+.squiggle-4 { top: 60%; right: 20%; animation-duration: 16s; animation-delay: -2s; }
+.squiggle-5 { top: 80%; left: 10%; animation-duration: 22s; animation-delay: -8s; }
+.squiggle-6 {
+    top: 30%;
+    left: 80%;
+    animation-duration: 19s;
+    animation-delay: -4s;
+}
+
+.squiggle-7 {
+    top: 15%;
+    left: 70%;
+    animation-duration: 22s;
+    animation-delay: -1s;
+}
+
+.squiggle-8 {
+    top: 65%;
+    left: 10%;
+    animation-duration: 18s;
+    animation-delay: -3s;
+}
+
+.squiggle-9 {
+    top: 75%;
+    right: 15%;
+    animation-duration: 21s;
+    animation-delay: -2s;
+}
+
+.squiggle-10 {
+    top: 45%;
+    left: 15%;
+    animation-duration: 20s;
+    animation-delay: -5s;
+}
+
+/* Balloons */
+.balloon {
+    width: 60px;
+    height: auto;
+    position: fixed;
+    z-index: 1;
+    will-change: transform;
+    transition: transform 0.1s linear;
+    transform-origin: 50% 90%;
+    animation-name: float-diagonal-bounce;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.balloon1 {
+    animation: float-diagonal-bounce 25s ease-in-out infinite, slideInFromLeft 1s ease-out 0.2s forwards;
+    width: 70px;
+    top: 15%;
+    left: 10%;
+    animation-duration: 25s;
+    animation-delay: 0s;
+}
+
+.balloon2 {
+    animation: float-diagonal-bounce 30s ease-in-out infinite, slideInFromRight 1s ease-out 0.3s forwards;
+    width: 50px;
+    top: 25%;
+    right: 15%;
+    animation-duration: 30s;
+    animation-delay: -10s;
+}
+
+.balloon3 {
+    animation: float-diagonal-bounce 35s ease-in-out infinite, slideInFromLeft 1s ease-out 0.4s forwards;
+    width: 65px;
+    top: 70%;
+    right: 20%;
+    animation-duration: 35s;
+    animation-delay: -20s;
+}
+
+/* Balls */
+.ball {
+    position: fixed;
+    z-index: 1;
+    animation-name: ball-rotate-move;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.ball1 {
+    width: 40px;
+    top: 35%;
+    left: 5%;
+    animation: ball-rotate-move-1 15s ease-in-out infinite, slideInFromBottom 1s ease-out 0.5s forwards;
+    animation-duration: 15s;
+    animation-delay: 0s;
+}
+
+.ball2 {
+    width: 35px;
+    top: 55%;
+    right: 8%;
+    animation: ball-rotate-move-2 18s ease-in-out infinite, slideInFromBottom 1s ease-out 0.6s forwards;
+    animation-duration: 18s;
+    animation-delay: -5s;
+}
+
+.ball3 {
+    width: 45px;
+    top: 85%;
+    left: 20%;
+    animation: ball-rotate-move-3 20s ease-in-out infinite, slideInFromBottom 1s ease-out 0.7s forwards;
+    animation-duration: 20s;
+    animation-delay: -10s;
+}
+
+/* Stars */
+.star {
+    position: fixed;
+    z-index: 1;
+    animation-name: star-twinkle;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.star1 {
+    width: 30px;
+    top: 5%;
+    left: 25%;
+    animation: star-twinkle 3s ease-in-out infinite, slideInFromLeft 1s ease-out 0.8s forwards;
+    animation-duration: 3s;
+    animation-delay: 0s;
+}
+
+.star2 {
+    width: 25px;
+    top: 10%;
+    right: 30%;
+    animation: star-twinkle 4s ease-in-out infinite, slideInFromRight 1s ease-out 0.9s forwards;
+    animation-duration: 4s;
+    animation-delay: -1s;
+}
+
+.star3 {
+    width: 35px;
+    top: 45%;
+    left: 35%;
+    animation: star-twinkle 5s ease-in-out infinite, slideInFromBottom 1s ease-out 1s forwards;
+    animation-duration: 5s;
+    animation-delay: -2s;
+}
+
+.star4 {
+    width: 20px;
+    top: 60%;
+    right: 25%;
+    animation: star-twinkle 3.5s ease-in-out infinite, slideInFromLeft 1s ease-out 1.1s forwards;
+    animation-duration: 3.5s;
+    animation-delay: -3s;
+}
+
+.star5 {
+    width: 40px;
+    top: 75%;
+    left: 15%;
+    animation: star-twinkle 4.5s ease-in-out infinite, slideInFromRight 1s ease-out 1.2s forwards;
+    animation-duration: 4.5s;
+    animation-delay: -1.5s;
+}
+
+.star6 {
+    width: 28px;
+    top: 20%;
+    left: 45%;
+    animation: star-twinkle 3.8s ease-in-out infinite, slideInFromBottom 1s ease-out 1.3s forwards;
+    animation-duration: 3.8s;
+    animation-delay: -2.5s;
+}
+
+.star7 {
+    width: 32px;
+    top: 80%;
+    right: 10%;
+    animation: star-twinkle 4.2s ease-in-out infinite, slideInFromLeft 1s ease-out 1.4s forwards;
+    animation-duration: 4.2s;
+    animation-delay: -3.5s;
+}
+
+/* Sun */
+.sun {
+    width: 110px;
+    top: 2%;
+    right: 2%;
+    animation: sun-pulse-rotate 8s ease-in-out infinite, slideInFromRight 1s ease-out 1.5s forwards;
+    animation-duration: 8s;
+    animation-delay: 0s;
+}
+
+/* Boy1 */
+.boy1 {
+    width: 60px;
+    top: 25%;
+    left: 8%;
+    animation: boy-dance 6s ease-in-out infinite, slideInFromLeft 1s ease-out 1.6s forwards;
+    animation-duration: 6s;
+    animation-delay: 0s;
+}
+
+.countdown-wrapper {
+    position: relative;
+    z-index: 10;
+    margin: 2rem 0;
+}
+
+.boy2 {
+    position: absolute;
+    width: 80px;
+    bottom: -100px;
+    right: -50px;
+    animation: boy-jump 4s ease-in-out infinite, slideInFromBottom 1s ease-out 1.7s forwards;
+    animation-duration: 4s;
+    animation-delay: 0s;
+    z-index: 5;
+}
+
+.title-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+h1, .girl-container {
+    margin: 0;
+    display: inline-block;
+}
+
+.girl-container {
+    flex-shrink: 0;
+}
+
+.girl {
+    height: 120px;
+    width: auto;
+    animation: girl-happy-dance 5s ease-in-out infinite;
+    animation-duration: 5s;
+    animation-delay: 0s;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--navy-blue);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: title-bounce 3s ease-in-out infinite;
+    animation-duration: 3s;
+    animation-delay: 0s;
+    line-height: 1.2;
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--navy-blue);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: title-bounce 3s ease-in-out infinite;
+    animation-duration: 3s;
+    animation-delay: 0s;
+    line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+}
+
+p {
+    font-size: 1.25rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.boy3 {
+    position: absolute;
+    width: 70px;
+    top: 50%;
+    left: -30px;
+    animation: boy-wave 5s ease-in-out infinite, slideInFromLeft 1s ease-out 1.8s forwards;
+    animation-duration: 5s;
+    animation-delay: 0s;
+    z-index: 5;
+}
+
+.countdown-container {
+    position: relative;
+    z-index: 10;
+}
+
+.countdown-box {
+    background: white;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    border: 3px solid var(--primary-color);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    animation: fadeIn 1s ease-out 2s both;
+}
+
+.countdown-box.navy-glow {
+    animation: navy-glow 2s ease-in-out;
+}
+
+.time-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+}
+
+@media (min-width: 768px) {
+    .time-block {
+        min-width: 100px;
+    }
+}
+
+.time-block span {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    line-height: 1;
+}
+
+.time-separator {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    animation: separator-pulse 2s ease-in-out infinite;
+    animation-duration: 2s;
+    animation-delay: 0s;
+    margin: 0 0.5rem;
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+}
+
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes squiggle-float {
+    0% {
+        transform: translateX(-100px) translateY(0px) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateX(calc(100vw + 100px)) translateY(-50px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes navy-glow {
+    0%, 100% { 
+        box-shadow: 0 0 5px 0px rgba(30, 58, 138, 0);
+        border-color: rgba(30, 58, 138, 0);
+    }
+    50% { 
+        box-shadow: 0 0 30px 10px rgba(30, 58, 138, 0.8);
+        border-color: rgba(30, 58, 138, 1);
+    }
+}
+
+@keyframes separator-pulse {
+    0%, 100% { 
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.6;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes title-bounce {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes girl-happy-dance {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-15px) rotate(-3deg);
+    }
+    50% {
+        transform: translateY(-5px) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-15px) rotate(3deg);
+    }
+}
+
+@keyframes boy-dance {
+    0%, 100% {
+        transform: translateX(0px) translateY(0px);
+    }
+    25% {
+        transform: translateX(10px) translateY(-10px);
+    }
+    50% {
+        transform: translateX(-5px) translateY(-5px);
+    }
+    75% {
+        transform: translateX(10px) translateY(-15px);
+    }
+}
+
+@keyframes boy-jump {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-25px);
+    }
+}
+
+@keyframes boy-wave {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+@keyframes float-diagonal-bounce {
+    0%, 100% { 
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+    25% { 
+        transform: translate(30px, -40px) rotate(10deg) scale(1.1);
+    }
+    50% { 
+        transform: translate(60px, -20px) rotate(-5deg) scale(0.9);
+    }
+    75% { 
+        transform: translate(30px, -50px) rotate(15deg) scale(1.05);
+    }
+}
+
+@keyframes ball-rotate-move {
+    0%, 100% { 
+        transform: translateY(0px) scale(1);
+    }
+    50% { 
+        transform: translateY(-50px) scale(1.1);
+    }
+}
+
+@keyframes ball-rotate-move-1 {
+    0% { 
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    25% { 
+        transform: translate(100px, -30px) scale(1.1) rotate(90deg);
+    }
+    50% { 
+        transform: translate(200px, 0px) scale(0.9) rotate(180deg);
+    }
+    75% { 
+        transform: translate(100px, 30px) scale(1.05) rotate(270deg);
+    }
+    100% { 
+        transform: translate(0, 0) scale(1) rotate(360deg);
+    }
+}
+
+@keyframes ball-rotate-move-2 {
+    0% { 
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    20% { 
+        transform: translate(-80px, -40px) scale(1.2) rotate(72deg);
+    }
+    40% { 
+        transform: translate(-150px, 0px) scale(0.8) rotate(144deg);
+    }
+    60% { 
+        transform: translate(-80px, 40px) scale(1.1) rotate(216deg);
+    }
+    80% { 
+        transform: translate(0px, 20px) scale(0.95) rotate(288deg);
+    }
+    100% { 
+        transform: translate(0, 0) scale(1) rotate(360deg);
+    }
+}
+
+@keyframes ball-rotate-move-3 {
+    0% { 
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    16.66% { 
+        transform: translate(60px, -50px) scale(1.15) rotate(60deg);
+    }
+    33.33% { 
+        transform: translate(120px, 0px) scale(0.85) rotate(120deg);
+    }
+    50% { 
+        transform: translate(60px, 50px) scale(1.1) rotate(180deg);
+    }
+    66.66% { 
+        transform: translate(0px, 25px) scale(0.9) rotate(240deg);
+    }
+    83.33% { 
+        transform: translate(-30px, -25px) scale(1.05) rotate(300deg);
+    }
+    100% { 
+        transform: translate(0, 0) scale(1) rotate(360deg);
+    }
+}
+
+@keyframes star-twinkle {
+    0%, 100% { 
+        opacity: 0.8;
+        transform: scale(1) rotate(0deg);
+    }
+    50% { 
+        opacity: 1;
+        transform: scale(1.3) rotate(180deg);
+    }
+}
+
+@keyframes sun-pulse-rotate {
+    0%, 100% { 
+        transform: scale(1) rotate(0deg);
+        opacity: 0.8;
+    }
+    50% { 
+        transform: scale(1.1) rotate(180deg);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+/* Extra Small devices (phones, 576px and down) */
+@media (max-width: 575.98px) {
+    body {
+        padding: 1rem 0;
+    }
+    
+    .container {
+        padding: 1rem 0.5rem;
+        min-height: 100vh;
+    }
+    
+    h1 {
+        font-size: 1.8rem !important;
+        line-height: 1.3;
+        margin-bottom: 1rem !important;
+    }
+    
+    .lead {
+        font-size: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .girl {
+        height: 80px !important;
+        width: auto;
+    }
+    
+    .display-4 {
+        font-size: 1.5rem !important;
+    }
+    
+    .countdown-box {
+        padding: 0.75rem 0.25rem !important;
+        border-radius: 15px;
+    }
+    
+    .time-block {
+        min-width: 60px !important;
+        padding: 0.25rem !important;
+    }
+    
+    .time-block span {
+        font-size: 1.4rem !important;
+    }
+    
+    .countdown-label {
+        font-size: 0.7rem !important;
+        margin-top: 0.25rem;
+    }
+    
+    .time-separator {
+        font-size: 1.4rem !important;
+        margin: 0 0.25rem;
+    }
+    
+    /* Floating elements adjustments */
+    .floating {
+        width: 30px !important;
+        height: auto;
+    }
+    
+    .balloon {
+        width: 40px !important;
+    }
+    
+    .ball {
+        width: 25px !important;
+    }
+    
+    .star {
+        width: 20px !important;
+    }
+    
+    .sun {
+        width: 50px !important;
+    }
+    
+    .boy1, .boy2, .boy3 {
+        width: 40px !important;
+    }
+
+    .confetti {
+        width: 6px !important;
+        height: 6px !important;
+    }
+    
+    .confetti-triangle {
+        border-left: 5px solid transparent !important;
+        border-right: 5px solid transparent !important;
+        border-bottom: 8px solid !important;
+    }
+    
+    .confetti-square {
+        width: 8px !important;
+        height: 8px !important;
+    }
+    
+    .confetti-circle {
+        width: 6px !important;
+        height: 6px !important;
+    }
+
+    .squiggle {
+        width: 50px !important;
+        height: 12px !important;
+    }
+    
+    /* Reposition floating elements for mobile */
+    .balloon1 { top: 10%; left: 5%; }
+    .balloon2 { top: 15%; right: 5%; }
+    .balloon3 { top: 80%; right: 10%; }
+    
+    .ball1 { top: 25%; left: 2%; }
+    .ball2 { top: 45%; right: 3%; }
+    .ball3 { top: 90%; left: 15%; }
+    
+    .star1 { top: 3%; left: 20%; }
+    .star2 { top: 8%; right: 25%; }
+    .star3 { top: 40%; left: 30%; }
+    .star4 { top: 55%; right: 20%; }
+    .star5 { top: 70%; left: 10%; }
+    .star6 { top: 15%; left: 40%; }
+    .star7 { top: 85%; right: 8%; }
+    
+    .sun { top: 2%; right: 2%; }
+    .boy1 { top: 20%; left: 5%; }
+    .boy2 { bottom: -80px; right: -30px; }
+    .boy3 { top: 45%; left: -20px; }
+    
+    .squiggle-1 { top: 8%; left: 3%; }
+    .squiggle-2 { top: 18%; right: 5%; }
+    .squiggle-3 { top: 35%; left: 10%; }
+    .squiggle-4 { top: 55%; right: 15%; }
+    .squiggle-5 { top: 75%; left: 8%; }
+    .squiggle-6 { top: 25%; left: 75%; }
+    .squiggle-7 { top: 12%; left: 65%; }
+    .squiggle-8 { top: 60%; left: 8%; }
+    .squiggle-9 { top: 70%; right: 10%; }
+    .squiggle-10 { top: 40%; left: 12%; }
+
+    .book-image {
+        width: 300px;
+    }
+    
+    .logo-image {
+        width: 120px;
+    }
+    
+    .logo-image.move-to-corner {
+        width: 80px;
+        top: 15px;
+        left: 15px;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    h1 {
+        font-size: 2.2rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .girl {
+        height: 100px !important;
+        width: auto;
+    }
+    
+    .display-4 {
+        font-size: 1.8rem !important;
+    }
+    
+    .countdown-box {
+        padding: 1rem 0.5rem !important;
+    }
+    
+    .time-block {
+        min-width: 70px !important;
+    }
+    
+    .time-block span {
+        font-size: 1.6rem !important;
+    }
+    
+    .countdown-label {
+        font-size: 0.8rem !important;
+    }
+    
+    .time-separator {
+        font-size: 1.6rem !important;
+    }
+    
+    .floating {
+        width: 35px !important;
+    }
+    
+    .balloon {
+        width: 45px !important;
+    }
+    
+    .ball {
+        width: 30px !important;
+    }
+    
+    .star {
+        width: 25px !important;
+    }
+    
+    .sun {
+        width: 60px !important;
+    }
+    
+    .boy1, .boy2, .boy3 {
+        width: 50px !important;
+    }
+    
+    .confetti {
+        width: 7px !important;
+        height: 7px !important;
+    }
+    
+    .squiggle {
+        width: 70px !important;
+        height: 15px !important;
+    }
+
+    .book-image {
+        width: 250px;
+    }
+    
+    .logo-image {
+        width: 100px;
+    }
+    
+    .logo-image.move-to-corner {
+        width: 70px;
+        top: 18px;
+        left: 18px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    h1 {
+        font-size: 2.8rem !important;
+    }
+    
+    .girl {
+        height: 110px !important;
+    }
+    
+    .display-4 {
+        font-size: 2.2rem !important;
+    }
+    
+    .time-block {
+        min-width: 90px !important;
+    }
+    
+    .time-block span {
+        font-size: 1.8rem !important;
+    }
+    
+    .floating {
+        width: 45px !important;
+    }
+    
+    .balloon {
+        width: 55px !important;
+    }
+    
+    .ball {
+        width: 35px !important;
+    }
+    
+    .star {
+        width: 30px !important;
+    }
+    
+    .sun {
+        width: 100px !important;
+    }
+    
+    .boy1, .boy2, .boy3 {
+        width: 60px !important;
+    }
+    
+    .confetti {
+        width: 8px !important;
+        height: 8px !important;
+    }
+    
+    .squiggle {
+        width: 80px !important;
+        height: 18px !important;
+    }
+
+    .book-image {
+        width: 350px;
+    }
+    
+    .logo-image {
+        width: 140px;
+    }
+    
+    .logo-image.move-to-corner {
+        width: 90px;
+        top: 18px;
+        left: 18px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    h1 {
+        font-size: 3.2rem !important;
+    }
+    
+    .girl {
+        height: 120px !important;
+    }
+    
+    .display-4 {
+        font-size: 2.5rem !important;
+    }
+    
+    .time-block {
+        min-width: 100px !important;
+    }
+    
+    .time-block span {
+        font-size: 2rem !important;
+    }
+    
+    .floating {
+        width: 50px !important;
+    }
+    
+    .balloon {
+        width: 60px !important;
+    }
+    
+    .ball {
+        width: 40px !important;
+    }
+    
+    .star {
+        width: 35px !important;
+    }
+    
+    .sun {
+        width: 110px !important;
+    }
+    
+    .boy1, .boy2, .boy3 {
+        width: 70px !important;
+    }
+    
+    .confetti {
+        width: 9px !important;
+        height: 9px !important;
+    }
+    
+    .squiggle {
+        width: 90px !important;
+        height: 20px !important;
+    }
+
+    .book-image {
+        width: 350px;
+    }
+    
+    .logo-image {
+        width: 140px;
+    }
+    
+    .logo-image.move-to-corner {
+        width: 90px;
+        top: 18px;
+        left: 18px;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+        padding: 3rem 2rem;
+    }
+    
+    h1 {
+        font-size: 3.5rem !important;
+    }
+    
+    .girl {
+        height: 130px !important;
+    }
+    
+    .display-4 {
+        font-size: 2.8rem !important;
+    }
+    
+    .time-block {
+        min-width: 120px !important;
+    }
+    
+    .time-block span {
+        font-size: 2.2rem !important;
+    }
+    
+    .floating {
+        width: 55px !important;
+    }
+    
+    .balloon {
+        width: 65px !important;
+    }
+    
+    .ball {
+        width: 45px !important;
+    }
+    
+    .star {
+        width: 40px !important;
+    }
+    
+    .sun {
+        width: 130px !important;
+    }
+    
+    .boy1, .boy2, .boy3 {
+        width: 80px !important;
+    }
+    
+    .confetti {
+        width: 10px !important;
+        height: 10px !important;
+    }
+    
+    .squiggle {
+        width: 100px !important;
+        height: 22px !important;
+    }
+
+    .book-image {
+        width: 450px;
+    }
+    
+    .logo-image {
+        width: 180px;
+    }
+    
+    .logo-image.move-to-corner {
+        width: 120px;
+        top: 25px;
+        left: 25px;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 600px) {
+    .container {
+        padding: 1rem 2rem;
+        min-height: 100vh;
+    }
+    
+    h1 {
+        font-size: 2rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .lead {
+        font-size: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .girl {
+        height: 80px !important;
+    }
+    
+    .countdown-wrapper {
+        margin: 1rem 0;
+    }
+    
+    .countdown-box {
+        padding: 0.5rem 1rem !important;
+    }
+    
+    .time-block {
+        min-width: 70px !important;
+    }
+    
+    .time-block span {
+        font-size: 1.6rem !important;
+    }
+    
+    .countdown-label {
+        font-size: 0.7rem !important;
+        margin-top: 0.25rem;
+    }
+    
+    /* Reduce floating elements for landscape */
+    .floating {
+        width: 30px !important;
+    }
+    
+    .balloon {
+        width: 35px !important;
+    }
+    
+    .ball {
+        width: 25px !important;
+    }
+    
+    .star {
+        width: 20px !important;
+    }
+    
+    .sun {
+        width: 50px !important;
+    }
+    
+    .boy1, .boy2, .boy3 {
+        width: 40px !important;
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .floating {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .floating {
+        animation: none !important;
+    }
+    
+    .confetti {
+        animation: none !important;
+    }
+    
+    .squiggle {
+        animation: none !important;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-color: var(--navy-blue);
+        --light-text: #333;
+    }
+    
+    .countdown-box {
+        background: white;
+        border-color: var(--primary-color);
+    }
+}
+
+/* Loading state */
+body:not(.loaded) {
+    overflow: hidden;
+}
+
+.container {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+body.loaded .container {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 767.98px) {
+    /* Improve touch targets */
+    .floating {
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    /* Reduce animation complexity on mobile */
+    .floating {
+        animation-duration: 15s !important;
+    }
+    
+    /* Optimize for mobile performance */
+    .floating-elements {
+        transform: translateZ(0);
+        backface-visibility: hidden;
+    }
+    
+    /* Better text wrapping */
+    h1 {
+        word-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    /* Improve countdown layout on very small screens */
+    @media (max-width: 375px) {
+        .countdown-box {
+            padding: 0.5rem 0.25rem !important;
+        }
+        
+        .time-block {
+            min-width: 50px !important;
+            padding: 0.25rem !important;
+        }
+        
+        .time-block span {
+            font-size: 1.2rem !important;
+        }
+        
+        .countdown-label {
+            font-size: 0.6rem !important;
+        }
+        
+        .time-separator {
+            font-size: 1.2rem !important;
+            margin: 0 0.15rem;
+        }
+    }
+}
+
+/* Print styles */
+@media print {
+    .floating-elements {
+        display: none;
+    }
+    
+    .countdown-box {
+        border: 2px solid #000;
+        background: white;
+        box-shadow: none;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+}
+
+/* Focus styles for accessibility */
+.floating:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .countdown-box {
+        border: 3px solid #000;
+        background: white;
+    }
+    
+    .floating {
+        filter: contrast(1.5);
+    }
+}
+
+/* Book and Logo Animation */
+.book-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    pointer-events: none;
+    transition: all 0.8s ease-in-out;
+}
+
+.book-container.initial-state {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+}
+
+.book-container.grow-state {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.book-container.burst-state {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+}
+
+.book-image {
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transition: all 0.8s ease-in-out;
+}
+
+.logo-image {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    height: auto;
+    transition: all 1s ease-in-out;
+    z-index: 1001;
+    pointer-events: none;
+}
+
+.logo-image.move-to-corner {
+    top: 20px !important;
+    left: 20px !important;
+    transform: translate(0, 0) !important;
+    width: 120px;
+}
+
+/* Hide main content initially */
+.container {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.container.show-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hide floating elements initially */
+.floating-elements .floating,
+.floating-elements .confetti,
+.floating-elements .squiggle {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.floating-elements.show-elements .floating,
+.floating-elements.show-elements .confetti,
+.floating-elements.show-elements .squiggle {
+    opacity: 0.8;
+}
+
+/* Book burst confetti effect */
+.book-burst-confetti {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #ff6b6b;
+    border-radius: 50%;
+    animation: book-burst 2s ease-out forwards;
+    pointer-events: none;
+}
+
+.book-burst-confetti.square {
+    border-radius: 0;
+}
+
+.book-burst-confetti.triangle {
+    width: 0;
+    height: 0;
+    background-color: transparent;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 10px solid #4ecdc4;
+}
+
+@keyframes book-burst {
+    0% {
+        transform: translate(0, 0) scale(0);
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--burst-x), var(--burst-y)) scale(1);
+        opacity: 0;
+    }
+}
